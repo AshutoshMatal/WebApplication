@@ -5,25 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <title>BridgelabzSolution Login</title>
+<style type="text/css">
+section {
+	width: 45%;
+	background-color: white;
+	padding: 25px 0 25px 0;
+	margin: 100px 200px 100px 100px;
+}
+</style>
 </head>
-<body>
-	<form>
-		<table>
-			<tr>
-				<th>Username</th>
-				<td><input type="text" name="username"
-					placeholder="emaild or username"></td>
-			</tr>
+<body style="background-color: #eeffee;">
+	<header
+		style="background-color: #3b5998; color: white; padding: 20px opx 1px 100px;">
+		<h1>
+			<b>Bridgelabz Solutions</b>
+		</h1>
+	</header>
+	<section>
+		<form>
+			<table>
+				<tr>
+					<th>Username</th>
+					<td><input type="text" name="username"
+						placeholder="emaild or username"></td>
+				</tr>
 
-			<tr>
-				<th>Password:</th>
-				<td><input type="password" name="password1"
-					placeholder="password"></td>
-			</tr>
+				<tr>
+					<th>Password:</th>
+					<td><input type="password" name="password1"
+						placeholder="password"></td>
+				</tr>
 
-			<tr>
-				<td><input type="submit" value="Login"></td>
-		</table>
-	</form>
+				<tr>
+					<td><input type="submit" value="Login"></td>
+			</table>
+		</form>
+	</section>
 </body>
 </html>
