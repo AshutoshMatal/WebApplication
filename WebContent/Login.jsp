@@ -10,7 +10,14 @@ section {
 	width: 45%;
 	background-color: white;
 	padding: 25px 0 25px 0;
-	margin: 100px 200px 100px 100px;
+	margin: 100px 200px 100px 250px;
+}
+
+form input {
+	width: 80%;
+	padding: 10px;
+	margin: 10px;
+	
 }
 </style>
 </head>
@@ -23,22 +30,26 @@ section {
 	</header>
 	<section>
 		<form>
-			<table>
+			<h4 align="center">Login to Bridgelabz Solutions</h4><br>
+			<table align="center">
 				<tr>
-					<th>Username</th>
-					<td><input type="text" name="username"
-						placeholder="emaild or username"></td>
+					<th>UserName :</th>
+					<td><input type="text" name="username" placeholder="emaild or username"></td>
 				</tr>
 
 				<tr>
-					<th>Password:</th>
-					<td><input type="password" name="password1"
-						placeholder="password"></td>
+					<th>Password :</th>
+					<td><input type="password" name="password1" placeholder="password"></td>
 				</tr>
 
 				<tr>
+					<th>
 					<td><input type="submit" value="Login"></td>
+				
+					<td><a href="register.jsp">Registration</a></td></th>
+					</tr>
 			</table>
+
 		</form>
 	</section>
 </body>
