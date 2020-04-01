@@ -36,6 +36,17 @@ public class LoginServlet extends HttpServlet
 			//IF THE DATA IS ADD SUCCESSFULLY THE IT WILL SHOW WELCOME PAGE
 			request.getRequestDispatcher("Welcome.jsp").forward(request,response);
 		}
+		//REGISTER DATA 
+		else if(submitType.equals("register"))
+		{ 
+			u=new User();
+			u.setName(request.getParameter("name"));
+			u.setPassword(password);
+			u.setUsername(userName);
+			cd.insertUser(u);
+			request.setAttribute("successMessage","Registration is done!!!!Plz login to continue");
+			request.getRequestDispatcher("Login.jsp").forward(request,response);
+		}
 		else
 		{	//ELSE IT WILL SHOW DATA NOT FOUND MSG
 			request.setAttribute("message","Data Not Found!!!!,click on Register");
