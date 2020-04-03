@@ -1,14 +1,13 @@
 package com.UserApplication.Web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.UserApplication.Dao.UserDao;
 import com.UserApplication.Dao.UserDaoImpl;
 import com.UserApplication.Model.User;
 
@@ -22,28 +21,33 @@ public class LoginServlet extends HttpServlet
 	{
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{  
-		UserDao cd=new UserDaoImpl();
+	{  //HttpSession session=request.getSession();
+		UserDaoImpl cd=new UserDaoImpl();
+		//PrintWriter out=response.getWriter();
 		String userName=request.getParameter("username");
 		String password=request.getParameter("password1");
+		String name=request.getParameter("name");
+		String emailId=request.getParameter("emailId");
+		String country=request.getParameter("country");
 		String submitType=request.getParameter("submit");
 		User u=new User();
-		u=cd.getUser(userName,password);
+		u=UserDaoImpl.validateUser(userName,password);
 		//LOGIN DATA 
-		if(submitType.equals("Login"))
+		if(submitType.equals("Login") && u!=null && u.getUsername()!=null)
 		{
-			request.setAttribute("message",u.getName());
+			request.setAttribute("message",u.getUsername());
 			//IF THE DATA IS ADD SUCCESSFULLY THE IT WILL SHOW WELCOME PAGE
 			request.getRequestDispatcher("Welcome.jsp").forward(request,response);
 		}
 		//REGISTER DATA 
 		else if(submitType.equals("register"))
-		{ 
-			u=new User();
-			u.setName(request.getParameter("name"));
-			u.setPassword(password);
+		{
 			u.setUsername(userName);
-			cd.insertUser(u);
+			u.setName(name);
+			u.setPassword(password);
+			u.setEmailId(emailId);
+			u.setCountry(country);
+			UserDaoImpl.insertUser(u);
 			request.setAttribute("successMessage","Registration is done!!!!Plz login to continue");
 			request.getRequestDispatcher("Login.jsp").forward(request,response);
 		}
