@@ -12,11 +12,11 @@ section {
 	padding: 25px 0 25px 0;
 	margin: 100px 200px 100px 300px;
 }
+
 form input {
 	width: 80%;
 	padding: 10px;
 	margin: 10px;
-	
 }
 </style>
 </head>
@@ -28,8 +28,10 @@ form input {
 		</h1>
 	</header>
 	<section>
-		<form>
-		<h4 align="center">Registration to Bridgelabz Solutions</h4><br>
+		<form action="<%=request.getContextPath() %>/loginServlet" method="post" align="center">
+			<input type="hidden" name="operation" value="Login">
+			<h4 align="center">Registration to Bridgelabz Solutions</h4>
+			<br>
 			<table align="center">
 				<tr>
 					<th>UserName :</th>
@@ -46,22 +48,17 @@ form input {
 						placeholder="password1"></td>
 				</tr>
 				<tr>
-					<th>Re-Enter_Password :</th>
-					<td><input type="password" name="password2"
-						placeholder="password2"></td>
-				</tr>
-				<tr>
 					<th>emailId :</th>
-					<td><input type="text" name="emailid" placeholder="emailid"></td>
+					<td><input type="text" name="emailId" placeholder="emailid"></td>
 				</tr>
 				<tr>
 					<th>Country :</th>
 					<td><input type="text" name="country" placeholder="country"></td>
 				</tr>
 				<tr>
-				<th>
+					<th>
 					<td><input type="submit" name="submit" value="register"></td>
-				</th>
+					</th>
 				</tr>
 			</table>
 		</form>
